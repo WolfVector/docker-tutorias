@@ -5,7 +5,7 @@ services:
     ports: #Definimos los puertos host:contenedor
       - 27018:27017
     command: [--auth]
-    environment:
+    environment: #Variables de entorno
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=password
     volumes: #Volumen para persistir datos

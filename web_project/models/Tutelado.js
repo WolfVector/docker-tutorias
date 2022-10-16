@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 
 /* En este documento se encuentra la definición de nuestros modelos */
 
-/* Subdocumento que define las notas del alumno */
+/* Subdocumento ( subtabla ) que define las notas del alumno */
 const notaSchema = new mongoose.Schema({
     materia: {
         type: String,
@@ -26,7 +26,7 @@ const notaSchema = new mongoose.Schema({
     }
 })
 
-/* Documento padre que almacena los datos del alumno y sus notas */
+/* Documento padre (tabla padre) que almacena los datos del alumno y sus notas */
 const tuteladoSchema = new mongoose.Schema({
     nombre: {
         type: String,
@@ -48,7 +48,7 @@ const tuteladoSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    notas: [notaSchema] //Un array de subdocumentos
+    notas: [notaSchema] //Un array de subdocumentos (subtablas)
 })
 
 let Tutelado = mongoose.models.Tutelado || mongoose.model("Tutelado", tuteladoSchema) //Creamos el modelo
