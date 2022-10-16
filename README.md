@@ -5,7 +5,7 @@ Este será el repositorio para el proyecto de sistemas virtuales. Aquí encontar
 ## Instalación
 
 Para la instalación sigue los siguientes pasos:
-- Primero que nada deben instalar <a href="https://nodejs.org/es/">node</a>
+- Primero que nada debes instalar <a href="https://nodejs.org/es/">node</a>
 - Tener docker instalado
 - Clona el repositorio o descarga el zip de esta página (en el botón `code`)
 - Accede con la terminal a la carpeta descomprimida. Ahí verás otra carpeta llamada `web_project`, accede a ella y ejecuta el siguiente comando:
