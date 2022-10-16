@@ -1,6 +1,6 @@
 # Proyecto Docker
 
-Este será el repositorio para el proyecto de sistemas virtuales. Aquí encontarás los pasos para instalación y la <a href="/doc">documentación</a>.
+Este será el repositorio para el proyecto de sistemas virtuales. Aquí encontarás los pasos para la instalación y la <a href="/doc">documentación</a>.
 
 ## Instalación
 
@@ -47,7 +47,7 @@ $ docker-compose -f mongo.yaml down
 
 Esto dentendrá y eliminará los contenedores.
 
-Para deter la página web abre la terminal donde está corriendo dicho proceso e ingresa `Ctrl+C`.
+Para detener la página web abre la terminal donde está corriendo dicho proceso e ingresa `Ctrl+C`.
 
 Si corren nuevamente el ambiente de prueba e ingresan a la base de datos, podrán ver que la información permaneció intacta.
 
