@@ -1,6 +1,6 @@
 # Proyecto Docker
 
-Este será el repositorio para el proyecto de sistemas virtuales. Aquí encontarás los pasos para instalar y la <a href="/doc">documentación</a>.
+Este será el repositorio para el proyecto de sistemas virtuales. Aquí encontarás los pasos para instalación y la <a href="/doc">documentación</a>.
 
 ## Instalación
 
@@ -36,7 +36,7 @@ En otra terminal entra a la carpeta `web_project` e ingresa:
 $ npm run dev
 ```
 Con esto el ambiente de prueba estará corriendo. Puedes acceder a la página con la url `localhost:3000`.
-Para realizar una prueba y verificar que la base de datos está funcionado pueden acceder a `localhost:3000/api/hello`. Esta url creará un tutelado en la tabla `tutelados`, dicha tabla se localiza en la tabla `tutorias`.  
+Para realizar una prueba y verificar que la base de datos está funcionado pueden acceder a `localhost:3000/api/hello`. Esta url creará un tutelado en la tabla `tutelados`, dicha tabla se localiza en la base de datos `tutorias`.  
 
 Puedes acceder a la base de datos con la url `localhost:8081`
 
