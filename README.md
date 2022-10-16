@@ -47,9 +47,9 @@ $ docker-compose -f mongo.yaml down
 
 Esto dentendrá y eliminará los contenedores.
 
-Para detener la página web abre la terminal donde está corriendo dicho proceso e ingresa `Ctrl+C`.
+Para detener la página web, abre la terminal donde está corriendo dicho proceso e ingresa `Ctrl+C`.
 
-Si corren nuevamente el ambiente de prueba e ingresan a la base de datos, podrán ver que la información permaneció intacta.
+Si corres nuevamente el ambiente de prueba e ingresas a la base de datos, podrás ver que la información permaneció intacta.
 
 ## Correr la aplicación en producción
 
