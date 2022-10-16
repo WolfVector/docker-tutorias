@@ -1,0 +1,34 @@
+# dependencies
+/web_project/node_modules
+/web_project/.pnp
+/web_project/.pnp.js
+
+# testing
+/web_project/coverage
+
+# next.js
+/web_project/.next/
+/web_project/out/
+
+# production
+/web_project/build
+
+# misc
+/web_project/.DS_Store
+/web_project/*.pem
+
+# debug
+/web_project/npm-debug.log*
+/web_project/yarn-debug.log*
+/web_project/yarn-error.log*
+/web_project/.pnpm-debug.log*
+
+# local env files
+/web_project/.env*.local
+
+# vercel
+/web_project/.vercel
+
+# typescript
+/web_project/*.tsbuildinfo
+/web_project/next-env.d.ts
