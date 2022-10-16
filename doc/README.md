@@ -20,7 +20,7 @@ volumes: #Volumen para persistir datos
 ```
 En el código de arriba se establece la persistencia de datos. `mongo-data` es el nombre del volumen que es manejado por docker para guardar la información fuera del contenedor y `/data/db` es la **ruta dentro del contenedor** que mongodb utiliza para guardar los datos.
 
-En otras palabras, cada vez que ejecutamos los contenedores, `mongo-data` es montado o transferido al espacio virtual `/data/db`.
+En otras palabras, cada vez que ejecutamos los contenedores, `mongo-data` es montado o transferido al espacio virtual `/data/db` y cuando detenemos los dockers ocurre lo contrario.
 
 ## prod.yaml
 Muy similar a `mongo.yaml` con la diferencia que aquí se crea el contenedor de la página web:
