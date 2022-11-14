@@ -22,7 +22,8 @@ async function StoreInformation(info,res) {
       carrera: info.carrera,
       semestre: info.semestre,
       ciclo_escolar: info.ciclo_escolar,
-      notas: [
+      notas: 
+      [
         {
           materia: 'materia 1',
           calificacion: 8,
