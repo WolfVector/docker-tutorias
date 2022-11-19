@@ -41,39 +41,27 @@ export default function Home() {
       carrera: input_carrera.current.value,
       semestre: input_semestre.current.value,
       ciclo_escolar: input_cicloescolar.current.value,
+      materias: table_materias.current.value,
       notas: GetTableValues(table_materias.current)
     }
-    return data;
-  }
-
-  async function SendData() {
-    let data_obj = {
-      name: input_name.current.value, //Obtenemos el valor del input
-      matricula: input_matricula.current.value,
-      carrera: input_carrera.current.value,
-      semestre: input_semestre.current.value,
-      ciclo_escolar: input_cicloescolar.current.value,
-      materias: table_materias.current.value
-    }
-    console.log(tableToJson(table_materias.current))
     //Dentro de /api/test viene una función 'handler' con parametros req y res.
     //Podrás acceder a los valores de 'data_obj' utilizando res.body.value1
-    // let response = await handleAsyncReq('/api/test', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(data_obj) //Enviamos la variable que contiene los datos
-    // })
+    let response = await handleAsyncReq('/api/test', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data_obj) //Enviamos la variable que contiene los datos
+    })
 
-    // if(response === false) {
-    //   console.log("Hubo un error al procesar la petición") //Esto se visualizará en la consola del navegador
-    // }
-    // else {
-    //   //Esto se visualizará en la consola del navegador
-    //   console.log("El server proceso correctamente la petición")
-    //   console.log(response)
-    // }
+    if(response === false) {
+      console.log("Hubo un error al procesar la petición") //Esto se visualizará en la consola del navegador
+    }
+    else {
+      //Esto se visualizará en la consola del navegador
+      console.log("El server proceso correctamente la petición")
+      console.log(response)
+    }
   }
   
   function AddRow(){
