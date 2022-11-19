@@ -17,15 +17,31 @@ export default function Home() {
   que contendrá la conexión a la db y la inserción de datos. Puedes guiarte del archivo /api/hello para ver un ejemplo.
   */
 
-  function tableToJson(table) {
-    var data = [];
-    for (var i=1; i<table.rows.length; i++) {
-        var tableRow = table.rows[i];
-        var rowData = [];
-        for (var j=0; j<tableRow.cells.length; j++) {
-            rowData.push(tableRow.cells[j].innerHTML);;
-        }
-        data.push(rowData);
+  function GetTableValues(table){
+    var value
+    
+    let values=[]
+    for(var i=1; i<table.rows.length; i++){
+      value={
+        materia:table.rows[i].cells[0].children[0].value, 
+        calificacion:table.rows[i].cells[1].children[0].value,
+        grado_dificultad:table.rows[i].cells[2].children[0].value,
+        preferencia:table.rows[i].cells[3].children[0].value,
+        tiempo_dedicado:table.rows[i].cells[4].children[0].value
+      }
+      values.push(value)
+    }
+    return values
+  }
+
+  async function SendData() {
+    let data_obj = {
+      name: input_name.current.value, //Obtenemos el valor del input
+      matricula: input_matricula.current.value,
+      carrera: input_carrera.current.value,
+      semestre: input_semestre.current.value,
+      ciclo_escolar: input_cicloescolar.current.value,
+      notas: GetTableValues(table_materias.current)
     }
     return data;
   }
@@ -59,15 +75,17 @@ export default function Home() {
     //   console.log(response)
     // }
   }
+  
   function AddRow(){
     var row=table_materias.current.insertRow()
-    var cell1=row.insertCell().innerHTML="<input type='text' className='input_class' value='ola'/>"
+    var cell1=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
     var cell2=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
     var cell3=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
     var cell4=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
     var cell5=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
 
   }
+
   return (
 
     <div>
@@ -87,6 +105,7 @@ export default function Home() {
         <br></br>
 
         <table ref={table_materias}>
+          <tbody>
             <tr>
                 <th>Materia</th>
                 <th>Calificación</th>
@@ -94,6 +113,7 @@ export default function Home() {
                 <th>Preferencia</th>
                 <th>Tiempo dedicado</th>
             </tr>
+          </tbody>
         </table>
 
         <button type='button' onClick={AddRow}>Añadir materia</button> {/* tipo se cambia a submit cuando quede bien calado */}
