@@ -19,7 +19,23 @@ export default function Home() {
   que contendrá la conexión a la db y la inserción de datos. Puedes guiarte del archivo /api/hello para ver un ejemplo.
   */
 
-  
+  function GetTableValues(table){
+    var value
+    
+    let values=[]
+    for(var i=1; i<table.rows.length; i++){
+      value={
+        materia:table.rows[i].cells[0].children[0].value, 
+        calificacion:table.rows[i].cells[1].children[0].value,
+        grado_dificultad:table.rows[i].cells[2].children[0].value,
+        preferencia:table.rows[i].cells[3].children[0].value,
+        tiempo_dedicado:table.rows[i].cells[4].children[0].value
+      }
+      values.push(value)
+    }
+    return values
+  }
+
   async function SendData() {
     let data_obj = {
       name: input_name.current.value, //Obtenemos el valor del input
@@ -27,7 +43,7 @@ export default function Home() {
       carrera: input_carrera.current.value,
       semestre: input_semestre.current.value,
       ciclo_escolar: input_cicloescolar.current.value,
-      materias: table_materias.current.value
+      notas: GetTableValues(table_materias.current)
     }
 
     //Dentro de /api/test viene una función 'handler' con parametros req y res.
@@ -52,7 +68,7 @@ export default function Home() {
 
   function AddRow(){
     var row=table_materias.current.insertRow()
-    var cell1=row.insertCell().innerHTML="<input type='text' className='input_class' value='ola'/>"
+    var cell1=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
     var cell2=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
     var cell3=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
     var cell4=row.insertCell().innerHTML="<input type='text' className='input_class'/>"

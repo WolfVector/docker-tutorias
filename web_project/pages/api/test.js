@@ -22,30 +22,7 @@ async function StoreInformation(info,res) {
       carrera: info.carrera,
       semestre: info.semestre,
       ciclo_escolar: info.ciclo_escolar,
-      notas: 
-      [
-        {
-          materia: 'materia 1',
-          calificacion: 8,
-          grado_dificultad: 'Mediano',
-          preferencia: 'Alta',
-          tiempo_dedicado: '2 horas'
-        },
-        {
-          materia: 'materia 2',
-          calificacion: 10,
-          grado_dificultad: 'Fácil',
-          preferencia: 'Baja',
-          tiempo_dedicado: '1 hora'
-        },
-        {
-          materia: 'materia 1',
-          calificacion: 9,
-          grado_dificultad: 'Mediano',
-          preferencia: 'Media',
-          tiempo_dedicado: '5 horas'
-        },
-      ]
+      notas: info.notas      
     }) 
     
     /* Es muy importante retornar algo, de lo contrario next.js no sabrá que hacer */
