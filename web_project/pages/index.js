@@ -5,7 +5,12 @@ import styles from '../styles/Home.module.css'
 
 
 export default function Home() {
-  const input_test = useRef()
+  const input_name = useRef()
+  const input_matricula = useRef()
+  const input_carrera = useRef()
+  const input_semestre = useRef()
+  const input_cicloescolar = useRef()
+  const table_materias=useRef()
 
   /*
   Para enviar datos del formulario a la db, se puede realizar utilizando la función fetch() de javascript o la función handleAsyncReq que 
@@ -15,9 +20,14 @@ export default function Home() {
   */
 
   
-  async function sendTest() {
+  async function SendData() {
     let data_obj = {
-      value1: input_test.current.value //Obtenemos el valor del input
+      name: input_name.current.value, //Obtenemos el valor del input
+      matricula: input_matricula.current.value,
+      carrera: input_carrera.current.value,
+      semestre: input_semestre.current.value,
+      ciclo_escolar: input_cicloescolar.current.value,
+      materias: table_materias.current.value
     }
 
     //Dentro de /api/test viene una función 'handler' con parametros req y res.
@@ -40,13 +50,49 @@ export default function Home() {
     }
   }
 
+  function AddRow(){
+    var row=table_materias.current.insertRow()
+    var cell1=row.insertCell().innerHTML="<input type='text' className='input_class' value='ola'/>"
+    var cell2=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
+    var cell3=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
+    var cell4=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
+    var cell5=row.insertCell().innerHTML="<input type='text' className='input_class'/>"
+
+  }
+
   return (
     <div>
-      Hola mundo 
-      
-      <form>
-        <input type="text" className="input_class" ref={input_test} />
-        <button type='button' onClick={sendTest}>Enviar</button>
+      <form /*onSubmit={SendData}*/>
+        Nombre del estudiante&nbsp;
+        <input type="text" className="input_class" size="30" ref={input_name} />&nbsp;&nbsp;
+        Matricula&nbsp;
+        <input type="text" className="input_class" size="6" maxLength="6" ref={input_matricula} />
+        <br></br>
+
+        Carrera&nbsp;
+        <input type="text" className="input_class" size="5" ref={input_carrera} />&nbsp;&nbsp;
+        Semestre&nbsp;
+        <input type="text" className="input_class" size="5" ref={input_semestre} />
+        Ciclo escolar&nbsp;
+        <input type="text" className="input_class" size="5" ref={input_cicloescolar} />
+        <br></br>
+
+        <table ref={table_materias}>
+          <tbody>
+            <tr>
+                <th>Materia</th>
+                <th>Calificación</th>
+                <th>Grado de dificultad</th>
+                <th>Preferencia</th>
+                <th>Tiempo dedicado</th>
+            </tr>
+          </tbody>
+        </table>
+
+        <button type='button' onClick={AddRow}>Añadir materia</button> {/* tipo se cambia a submit cuando quede bien calado */}
+
+        <button type='button' onClick={SendData}>Enviar</button> {/* tipo se cambia a submit cuando quede bien calado */}
+
       </form>
     </div>
   )
