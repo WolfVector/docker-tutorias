@@ -75,40 +75,67 @@ export default function Home() {
   }
 
   return (
-
+<body class="bg-gray-200">
+  <div>
+    <h1 class="text-3xl font-semibold">Tutorias UPSLP</h1>
+    <p class="text-sm text-gray-600">Sistema de tutorias para la UPSLP</p>
+  </div>
     <div>
-      <form /*onSubmit={SendData}*/>
-        Nombre del estudiante&nbsp;
-        <input type="text" className="input_class" size="30" ref={input_name} />&nbsp;&nbsp;
-        Matricula&nbsp;
-        <input type="text" className="input_class" size="6" maxLength="6" ref={input_matricula} />
-        <br></br>
+      <form class="px-4 my-32 max-w-3xl mx-auto space-y-6"/*onSubmit={SendData}*/>      
+        <div class="flex space-x-4">
+          <div class="w-1/2">
+            <label for="name">Nombre del estudiante</label>
+            <input type="text" name="nombre" className="border border-gray-100 block py-2 px-4 w-full rounded focus:outline-none focus:border-teal-1000" size="30" ref={input_name} />
+          </div>
+          
+          <div>
+            <label for="matricula">Matricula</label>
+            <input type="text" name="matricula" className="border border-gray-100 block py-2 px-4 w-100 rounded focus:outline-none focus:border-teal-1000" size="6" maxLength="6" ref={input_matricula} />
+          </div>
+        </div>
+        
+        <div class="flex space-x-4">
+          <div>
+            <label for="carrera">Carrera</label>
+            <input type="text" name="carrera" className="border border-gray-100 block py-2 px-4 w-100 rounded focus:outline-none focus:border-teal-1000" size="5" ref={input_carrera} />
+          </div>
 
-        Carrera&nbsp;
-        <input type="text" className="input_class" size="5" ref={input_carrera} />&nbsp;&nbsp;
-        Semestre&nbsp;
-        <input type="text" className="input_class" size="5" ref={input_semestre} />
-        Ciclo escolar&nbsp;
-        <input type="text" className="input_class" size="5" ref={input_cicloescolar} />
-        <br></br>
+          <div>
+            <label for="semestre">Semestre</label>
+            <input type="text" name="semestre" className="border border-gray-100 block py-2 px-4 w-100 rounded focus:outline-none focus:border-teal-1000" size="5" ref={input_semestre} />
+          </div>
+        </div>
+        
+        
+        <div>
+          <label for="ciclo">Ciclo Escolar</label>
+          <input type="text" name="ciclo" className="border border-gray-100 block py-2 px-4 w-120 rounded focus:outline-none focus:border-teal-1000" size="7" ref={input_cicloescolar} />
+        </div>
+      
 
         <table ref={table_materias}>
+        <thead class="bg-gray-250 border-b-2 border-white-200">
+              <tr>
+                  <th>Materia</th>
+                  <th>Calificación</th>
+                  <th>Grado de dificultad</th>
+                  <th>Preferencia</th>
+                  <th>Tiempo dedicado</th>
+              </tr>
+            </thead>
           <tbody>
-            <tr>
-                <th>Materia</th>
-                <th>Calificación</th>
-                <th>Grado de dificultad</th>
-                <th>Preferencia</th>
-                <th>Tiempo dedicado</th>
-            </tr>
+            
+            
           </tbody>
         </table>
-
-        <button type='button' onClick={AddRow}>Añadir materia</button> {/* tipo se cambia a submit cuando quede bien calado */}
-
-        <button type='button' onClick={SendData}>Enviar</button> {/* tipo se cambia a submit cuando quede bien calado */}
+        <div class="px-2 py-6 flex justify-between bg-gray-250">
+          <button type='button' class="bg-yellow-600 px-4 py-2 text-white rounded" onClick={AddRow}>Añadir materia</button> {/* tipo se cambia a submit cuando quede bien calado */}
+          <button type='button' class="bg-green-600 px-4 py-2 text-white rounded" onClick={SendData}>Enviar</button> {/* tipo se cambia a submit cuando quede bien calado */}
+        </div>
+        
 
       </form>
     </div>
+    </body>
   )
 }
