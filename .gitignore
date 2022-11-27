@@ -32,3 +32,4 @@
 # typescript
 /web_project/*.tsbuildinfo
 /web_project/next-env.d.ts
+web_project/yarn.lock

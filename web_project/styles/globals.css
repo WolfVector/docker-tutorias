@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 .input_class {
-  border: 2px solid red;
+  border: 2px solid gray;
+  
 }
 
 /*html,
